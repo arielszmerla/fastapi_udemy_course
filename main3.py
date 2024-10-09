@@ -59,9 +59,8 @@ async def read_products(offset: int = 0, range: int = 10):
     return Products_db[offset : offset + range]
 
 
-app.get("/toiletries/{toiletries_id}")
-async def my_toiletries(toiletries_id: str, q: str | None = None):
+@app.get("/books/{book_id}")
+async def read_book(book_id: str, q=None):
     if q:
-        return {"toiletries_id": toiletries_id, "q": q}
-
-    return {"toiletries_id": toiletries_id}
+        return {"book_id": book_id, "q": q}
+    return {"book_id": book_id}
